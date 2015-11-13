@@ -12,12 +12,14 @@ double compute_weigthed_mean(T *data, W *weigths, int start, int length)
 {
 	int i;
 	double ret = 0;
+	double divisor = 0;
 
 	for(i=start;i<length;i++) {
-		ret += weigths[i] * data[i];	
+		ret += weigths[i] * data[i];
+		divisor += weigths[i];
 	}
 
-	return ret/length;
+	return ret/divisor;
 }
 
 template<typename T>
