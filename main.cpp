@@ -116,6 +116,7 @@ int main(int argc, char **argv)
 	int weigths_length = 0;
 	int weigths_available = 0;
 	int next_is_weigth = 1;
+	int numbers_to_remove = 1;
 
 	char *word;
 	char *line = NULL;
@@ -174,14 +175,16 @@ int main(int argc, char **argv)
 		}
 	}
 
+	if (weigthed_flag)
+		numbers_to_remove *= 2;
 
 
 	/* ok we collected everything, start computing */
 	if (ignore_last_flag == 1)
-		data_length--;
+		data_length -= numbers_to_remove;
 	
 	if (ignore_first_flag == 1)
-		start++;
+		start += numbers_to_remove;
 
 
 
