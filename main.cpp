@@ -239,6 +239,7 @@ int main(int argc, char **argv)
 	
 	free(delim);
 	free(data);
-	
+	free(weigths);
+
 	return 0;
 }
