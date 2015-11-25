@@ -28,24 +28,26 @@ static char *delim = NULL;
 static int commands_queue_counter;
 static int commands_queue[COMPUTE_END];
 
+static const struct option long_options[] = {
+	{"ignore-last", no_argument, &ignore_last_flag, 1},
+	{"ignore-first", no_argument, &ignore_first_flag, 1},
+	{"gentle", no_argument, &gentle_flag, 1},
+	{"weigthed", no_argument, &weigthed_flag, 1},
+	{"mean", no_argument, 0, 'm'},
+	{"median", no_argument, 0, 'x'},
+	{"sum", no_argument, 0, 'r'},
+	{"variance", no_argument, 0, 'v'},
+	{"std_deviation", no_argument, 0, 's'},
+	{"min", no_argument, 0, 'l'},
+	{"max", no_argument, 0, 'o'},
+	{"delim", required_argument, 0, 'd'},
+	{0, 0, 0, 0},
+};
+
+
 static void parse_options(int argc, char **argv)
 {
 	int opt, option_index;
-	
-	static const struct option long_options[] = {
-		{"ignore-last", no_argument, &ignore_last_flag, 1},
-		{"ignore-first", no_argument, &ignore_first_flag, 1},
-		{"gentle", no_argument, &gentle_flag, 1},
-		{"weigthed", no_argument, &weigthed_flag, 1},
-		{"mean", no_argument, 0, 'm'},
-		{"median", no_argument, 0, 'x'},
-		{"variance", no_argument, 0, 'v'},
-		{"std_deviation", no_argument, 0, 's'},
-		{"min", no_argument, 0, 'l'},
-		{"max", no_argument, 0, 'o'},
-		{"delim", required_argument, 0, 'd'},
-		{0, 0, 0, 0},
-	};
 
 	commands_queue_counter = 0;
 
