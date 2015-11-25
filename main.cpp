@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 	parse_options(argc, argv);
 
 	if (delim == NULL) {
-		delim = (char *) malloc(3);
+		delim = (char *) malloc(4);
 		strcpy(delim, " ,;");	
 	}
 
