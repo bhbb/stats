@@ -40,12 +40,15 @@ double compute_mean(T *data, int start, int length)
 	int i;
 	int *weigths;
 
-	weigths = (int *) xmalloc(length);
+	weigths = (int *) xmalloc((length-start)*sizeof(int));
 	
-	for(i=0;i<length;i++)
+	for(i=start;i<length;i++)
 		weigths[i] = 1;
 
-	return compute_weigthed_mean(data, weigths, start, length);
+	i = compute_weigthed_mean(data, weigths, start, length);
+
+	free(weigths);
+	return i;
 }
 
 template<typename T>
