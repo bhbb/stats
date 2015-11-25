@@ -7,6 +7,18 @@
 #include "util.h"
 
 
+template<typename T>
+double compute_sum(T *data, int start, int length)
+{
+	double ret = 0;
+	int i;
+
+	for(i=start;i<length;i++)
+		ret += data[i];
+
+	return ret;
+}
+
 template<typename T, typename W>
 double compute_weigthed_mean(T *data, W *weigths, int start, int length)
 {

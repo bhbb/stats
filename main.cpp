@@ -11,7 +11,8 @@
 
 enum measure_of_location {
 	COMPUTE_MEAN = 0,
-	COMPUTE_MEDIAN, 
+	COMPUTE_MEDIAN,
+	COMPUTE_SUM,
 	COMPUTE_MIN,
 	COMPUTE_MAX,
 	COMPUTE_VARIANCE,
@@ -64,6 +65,9 @@ static void parse_options(int argc, char **argv)
 				break;
 			case 'x':
 				commands_queue[commands_queue_counter++] = COMPUTE_MEDIAN;
+				break;
+			case 'r':
+				commands_queue[commands_queue_counter++] = COMPUTE_SUM;
 				break;
 			case 'l':
 				commands_queue[commands_queue_counter++] = COMPUTE_MIN;
@@ -207,6 +211,9 @@ int main(int argc, char **argv)
 				/* sort data first for median */
 				qsort(data, data_length, sizeof(double), double_compare);
 				std::cout << compute_median(data, start, data_length) << std::endl;
+				break;
+			case COMPUTE_SUM:
+				std::cout << compute_sum(data, start, data_length) << std::endl;
 				break;
 			case COMPUTE_MIN:
 				std::cout << data[start] << std::endl;
