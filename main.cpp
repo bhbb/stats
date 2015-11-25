@@ -183,6 +183,9 @@ int main(int argc, char **argv)
 
 	if ((data_length != weigths_length) && weigthed_flag) {
 		std::cout << "error: data point or weigth is missing" << std::endl;
+		free(data);
+		free(weigths);
+		free(delim);
 		return -1;
 	}
 
