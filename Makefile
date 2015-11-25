@@ -1,6 +1,6 @@
 CC=g++
 FILE_ENDING=cpp
-CFLAGS = -std=c++11 -Wall -g
+CFLAGS := $(CFLAGS) -std=c++11 -Wall -g
 OBJS=
 OBJS+=util.o
 OBJS+=main.o
@@ -20,7 +20,7 @@ compile:
 
 link:
 	@echo "\tLINK\t $(TARGET)"
-	@$(CC) $(OBJS) $(LIBS) -o $(TARGET)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(TARGET)
 
 clean:
 	@echo "\tRM\t*.o"
